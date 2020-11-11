@@ -19,5 +19,6 @@ public class Main {
         //2 threads running
         //4 total threads available
         //how to safely share data between threads
+        ThreadDemo.show();
     }
 }
