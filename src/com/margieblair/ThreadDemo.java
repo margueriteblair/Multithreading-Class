@@ -13,17 +13,18 @@ public class ThreadDemo {
             Thread thread = new Thread(new DownloadFileTask());
             thread.start();
             try {
-                thread.join();
+                thread.sleep(1000);
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
-        System.out.println("File is ready to be scanned.");
 
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException ex) {
-                ex.printStackTrace();
-            }
+            thread.interrupt();
+
+//            try {
+//                Thread.sleep(3000);
+//            } catch (InterruptedException ex) {
+//                ex.printStackTrace();
+//            }
 //        }
 
     }
