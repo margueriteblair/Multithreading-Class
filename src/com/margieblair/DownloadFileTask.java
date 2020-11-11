@@ -12,6 +12,8 @@ public class DownloadFileTask implements Runnable{
             ex.printStackTrace();
         }
         //JVM has a virtual scheduler
+        //if you have more tasks than available threads, the built in thread scheduler
+        //will decide which threads to give to what amount of CPU time
         System.out.println("Download Complete" + Thread.currentThread().getName());
     }
 }
