@@ -10,11 +10,13 @@ public class ThreadDemo {
     //runnable thread only has one method, run
 
     public static void show() {
-        var status = new DownloadStatus();
-
         List<Thread> threads = new ArrayList<>();
+        List<DownloadFileTask> tasks = new ArrayList<>();
+
         for (var i = 0; i < 10; i++) {
-            var thread = new Thread(new DownloadFileTask(status));
+            var task = new DownloadFileTask();
+            tasks.add(task);
+            var thread = new Thread(task);
             thread.start();
             threads.add(thread);
             //we can't call thread.join() because it's a blocking method
@@ -27,7 +29,8 @@ public class ThreadDemo {
                 ex.printStackTrace();
             }
         }
-        System.out.println(status.getTotalBytes());
+        var totalBytes = tasks.stream().map(t -> t.getStatus().getTotalBytes()).reduce(0, (a, b) -> (a+b));
+        System.out.println(totalBytes);
         //this will not actually return the 10,000 bytes we wanted it to because this is a race condition in action
 //        System.out.println(Thread.currentThread().getName());
         //each thread has a name and an id
