@@ -19,6 +19,16 @@ public class ThreadDemo {
             threads.add(thread);
             //we can't call thread.join() because it's a blocking method
         }
+
+        for (var thread : threads) {
+            try {
+                thread.join();
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        }
+        System.out.println(status.getTotalBytes());
+        //this will not actually return the 10,000 bytes we wanted it to because this is a race condition in action
 //        System.out.println(Thread.currentThread().getName());
         //each thread has a name and an id
 //        for (int i = 0; i < 10; i++) {
