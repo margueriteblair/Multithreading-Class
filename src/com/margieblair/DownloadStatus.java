@@ -5,7 +5,8 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class DownloadStatus {
     private int totalBytes;
-    private Lock lock = new ReentrantLock(); //this is an implementation of the lock interface
+    private int totalFiles;
+//    private Lock lock = new ReentrantLock(); //this is an implementation of the lock interface
 
 
     public int getTotalBytes() {
@@ -13,15 +14,24 @@ public class DownloadStatus {
     }
 
     public void incrementTotalBytes() {
-
-        lock.lock();
-        try {
+        synchronized (this) {
             totalBytes++;
-        } finally {
-            lock.unlock();
-            //make sure to unlock this lock inside a finally block
-            //still gets to 10000 bytes
         }
+    }
+
+//        lock.lock();
+//        try {
+//            totalBytes++;
+//        } finally {
+//            lock.unlock();
+//            //make sure to unlock this lock inside a finally block
+//            //still gets to 10000 bytes
+//        }
+
+    public synchronized void incrementTotalFiles() {
+        //using the this keyword is bad practice bc it can cause unnecessary waits
+        totalFiles++;
 
     }
+
 }
