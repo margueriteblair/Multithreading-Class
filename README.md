@@ -7,7 +7,7 @@ Better understanding Java threading, CPU caching, and JVM through a mini-lesson 
 Topics covered:
 -Threads
 -Processes
--Multi-threading
+-Multi-threading, sleeping, try-catch protocol
 -Thread-safe code
     -Synchronization
     -Confinment
