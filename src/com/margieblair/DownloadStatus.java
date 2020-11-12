@@ -4,7 +4,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class DownloadStatus {
-    private boolean isDone;
+    private volatile boolean isDone;
     private int totalBytes;
     private int totalFiles;
 //    private Lock lock = new ReentrantLock(); //this is an implementation of the lock interface
