@@ -21,4 +21,12 @@ public class Main {
         //how to safely share data between threads
         ThreadDemo.show();
     }
+    //thread safety in our java code is very important
+    //there are multiple strategies for thread-safe code
+    //1. don't share data across objects-this makes it easier to avoid data overlap in the first place, no race conditions
+    //2.using immutable objects,
+    //3.synchronization, not recommended, but basically you time when certain threads can access a data object, its easy for this to get tricky
+    //4. atomic objects
+    //5. java partitioning
+
 }
