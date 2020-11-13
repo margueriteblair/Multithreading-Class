@@ -6,5 +6,10 @@ public class LibraryDemo {
         //this is where we'll put more specifics to actually run it
         //then within the main class, LibraryDemo.show()
         //should make a book object?
+
+        var status = new CheckoutStatus();
+        var thread = new Thread(new CheckoutBookTask());
+
+
     }
 }

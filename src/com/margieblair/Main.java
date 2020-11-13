@@ -13,8 +13,11 @@ public class Main {
 
         for (int i = 0; i < libraryBooks.size(); i++) {
             Thread thread = new Thread();
+            thread.start();
             System.out.println("Starting thread " + thread.getName());
         }
+
+        LibraryDemo.show();
 
 
 
