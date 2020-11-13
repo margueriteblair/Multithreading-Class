@@ -11,6 +11,15 @@ public class Main {
         libraryBooks.add(new Book("The Jungle", "Upton Sinclair", true));
         libraryBooks.add(new Book("I don't read", "Margie Blair", false));
 
+        for (int i = 0; i < libraryBooks.size(); i++) {
+            Thread thread = new Thread();
+            System.out.println("Starting thread " + thread.getName());
+        }
+
+
+
+        //the process of checking out a book runs a different thread on the same system, and we have to share data across the system
+
 
         // write your code here
         //Process is an instance of a program/application
@@ -23,12 +32,12 @@ public class Main {
         //multi-threading is running many threads at the same time
         //most processors have many cores and each core can be used to run different threads
         //if your application doesn't use threads, youre essentially only using one of the processor cores
-        System.out.println(Thread.activeCount()); //we're running two threads, the main thread upfront and the garbage collector in the background
-        System.out.println(Runtime.getRuntime().availableProcessors()); //this is the total number of threads available
+//        System.out.println(Thread.activeCount()); //we're running two threads, the main thread upfront and the garbage collector in the background
+//        System.out.println(Runtime.getRuntime().availableProcessors()); //this is the total number of threads available
         //2 threads running
         //4 total threads available
         //how to safely share data between threads
-        ThreadDemo.show();
+//        ThreadDemo.show();
     }
 
 
