@@ -21,6 +21,10 @@ public class DownloadStatus {
     public int getTotalBytes() {
         return totalBytes.intValue(); //internally will call sum();
     }
+    //sometimes we need to share a collection across many threads
+    //runnable interface just takes run() method and returns void
+    //no parameters
+    //collection.addAll(Arrays.asList(1,2,3));
 
     public void incrementTotalBytes() {
            totalBytes.increment();
