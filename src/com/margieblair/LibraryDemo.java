@@ -7,6 +7,13 @@ public class LibraryDemo {
         //then within the main class, LibraryDemo.show()
         //should make a book object?
 
+        //runnable interface
+
+        //talk about thread-safecode
+        //joining threads
+        //starting threads
+        //idk help
+
         var status = new CheckoutStatus();
         var thread = new Thread(new CheckoutBookTask());
 
