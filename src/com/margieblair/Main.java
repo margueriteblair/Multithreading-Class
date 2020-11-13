@@ -1,9 +1,18 @@
 package com.margieblair;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
+        ArrayList<Book> libraryBooks = new ArrayList<>();
+        libraryBooks.add(new Book("A Clockwork Orange", "Anthony Burgess", true));
+        libraryBooks.add(new Book("The Jungle", "Upton Sinclair", true));
+        libraryBooks.add(new Book("I don't read", "Margie Blair", false));
+
+
+        // write your code here
         //Process is an instance of a program/application
         //loading a music player is an instance of an application
         //your computer can handle multiple processes at one time
@@ -21,6 +30,8 @@ public class Main {
         //how to safely share data between threads
         ThreadDemo.show();
     }
+
+
     //thread safety in our java code is very important
     //there are multiple strategies for thread-safe code
     //1. don't share data across objects-this makes it easier to avoid data overlap in the first place, no race conditions

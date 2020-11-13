@@ -3,20 +3,20 @@ package com.margieblair;
 public class Book {
     private String title;
     private String author;
-    private boolean checkedIn;
+    private boolean status;
 
     public Book(String title, String author, boolean checkedIn) {
         this.title = title;
         this.author = author;
-        this.checkedIn = checkedIn;
+        this.status = checkedIn;
     }
 
     public boolean isCheckedIn() {
-        return checkedIn;
+        return status;
     }
 
     public void setCheckedIn(boolean checkedIn) {
-        this.checkedIn = checkedIn;
+        this.status = checkedIn;
     }
 
     public String getAuthor() {
