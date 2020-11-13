@@ -56,3 +56,5 @@ public class ThreadDemo {
 
     }
 }
+//atomic classes in java, can help us fix race conditions
+//

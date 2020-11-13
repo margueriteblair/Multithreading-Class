@@ -1,11 +1,12 @@
 package com.margieblair;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class DownloadStatus {
     private volatile boolean isDone; //we're telling the JVM, hey this object is unstable, don't rely on the data that is already stored in the cache
-    private int totalBytes;
+    private AtomicInteger totalBytes = new AtomicInteger();
     private int totalFiles;
 //    private Lock lock = new ReentrantLock(); //this is an implementation of the lock interface
 //there are the wait() and notify() methods
@@ -14,13 +15,14 @@ public class DownloadStatus {
     //should be wrapped in a try/catch block
 
     public int getTotalBytes() {
-        return totalBytes;
+        return totalBytes.get();
     }
 
     public void incrementTotalBytes() {
-        synchronized (this) {
-            totalBytes++;
-        }
+           totalBytes.incrementAndGet();
+           //atomic ints have an incrementAndGet() and also a getAndIncrement()
+        //the order about returning a value or incrementing first is what matters
+        //++a vs a++
     }
 
     public boolean isDone() {
