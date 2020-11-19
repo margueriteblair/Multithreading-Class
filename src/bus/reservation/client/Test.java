@@ -1,6 +1,8 @@
 package bus.reservation.client;
 
-import system;
 
 public class Test {
+    public static void main(String[] args) {
+
+    }
 }
