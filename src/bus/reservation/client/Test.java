@@ -12,6 +12,7 @@ public class Test {
         //both margie and hello world want 2 tickets, but there's only 3!
         t1.start();
         t2.start();
+        //they share they same reference
 
     }
 }
