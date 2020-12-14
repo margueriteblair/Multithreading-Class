@@ -28,7 +28,6 @@ public class MainWithThreading extends Thread {
     }
 
     public static void main(String[] args) throws Exception {
-        int n = 2;
         long startTime = System.nanoTime();
         String path = "/Users/margueriteblair/Desktop/anime.csv";
         String line = "";
