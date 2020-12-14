@@ -1,10 +1,34 @@
 package CSVReader;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.*;
 
-public class MainWithThreading {
+public class MainWithThreading extends Thread {
+
+    InputStream in;
+
+    public MainWithThreading(String path) throws Exception {
+        in=new FileInputStream(path);
+        this.start();
+    }
+    public void run() {
+        int i = 0;
+        while (i != -1) {
+            try {
+                i = in.read();
+                System.out.println((char)i);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+        try {
+            in.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) throws Exception {
+        int n = 2;
         long startTime = System.nanoTime();
         String path = "/Users/margueriteblair/Desktop/anime.csv";
         String line = "";
@@ -16,8 +40,6 @@ public class MainWithThreading {
         }
         long endTime = System.nanoTime();
         long durationInMilliseconds = (endTime - startTime) / 1000000;
-        //prev: 485189006
-        //current: 511 milliseconds
         System.out.println("The process without threading ran in: " + durationInMilliseconds + " milliseconds");
     }
 }
