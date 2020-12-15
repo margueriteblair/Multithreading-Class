@@ -10,7 +10,7 @@ public class LibraryTest {
         BookCheckoutThread threadBook2 = new BookCheckoutThread(bookInventory, "Hello world", 5);
 
         threadBook1.start();
-        threadBook1.join();
+//        threadBook1.join();
         threadBook2.start();
     }
 }

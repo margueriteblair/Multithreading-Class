@@ -1,16 +1,19 @@
 package library.checkout.system;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.LongAdder;
 
 public class BookInventory {
 
-    private int availableBooks = 10;
+//    private int availableBooks = 10;
+    private LongAdder checkedOutBooks = new LongAdder();
 
     public void checkoutBook(String cardName, int numOfBooks) {
 
-        if ((availableBooks >= numOfBooks) && (numOfBooks > 0)) {
+        if ((10 >= numOfBooks) && (numOfBooks > 0)) {
             System.out.println("Thanks, " + cardName + ", you've successfully checked out " + numOfBooks + " books.");
-            availableBooks = (availableBooks - numOfBooks);
+            checkedOutBooks.increment();
+            System.out.println("Total checked out books is: " + checkedOutBooks);
         } else {
             System.out.println("Unfortunately, those aren't all available");
         }
