@@ -1,5 +1,7 @@
 package library.checkout.system;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class BookInventory {
 
     private int availableBooks = 10;
