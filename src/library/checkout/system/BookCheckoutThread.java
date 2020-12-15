@@ -1,7 +1,5 @@
 package library.checkout.system;
 
-import bus.reservation.system.TicketCounter;
-
 public class BookCheckoutThread extends Thread{
     private BookInventory bookInventory;
     private String checkoutName;
