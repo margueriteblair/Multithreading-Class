@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LibraryTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         BookInventory bookInventory = new BookInventory(); //doesn't take any args, but it'll provide us with a number of 10 books
         List<Thread> threadList = new ArrayList<>();
         BookCheckoutThread threadBook1 = new BookCheckoutThread(bookInventory, "Margie", 3);
@@ -17,11 +17,12 @@ public class LibraryTest {
         BookCheckoutThread threadBook5 = new BookCheckoutThread(bookInventory, "User 4", 3);
 
 
-        threadList.add(threadBook1);
-        threadList.add(threadBook2);
-        threadList.add(threadBook3);
-        threadList.add(threadBook4);
-        threadList.add(threadBook5);
+//        threadList.add(threadBook1);
+//        threadList.add(threadBook2);
+//        threadList.add(threadBook3);
+//        threadList.add(threadBook4);
+//        threadList.add(threadBook5);
+        threadList.addAll(List.of(threadBook1, threadBook2, threadBook3, threadBook4, threadBook5));
 
         for (Thread thread: threadList) {
             thread.start();
