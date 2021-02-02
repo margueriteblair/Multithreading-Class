@@ -10,7 +10,7 @@ Topics covered:<br>
 -Multi-threading, sleeping, try-catch protocol<br>
 -Thread-safe code<br>
     -Synchronization<br>
-    -Confinment<br>
+    -Confinement<br>
     -Atomic Objects<br>
     -Volatile keyword<br>
     
